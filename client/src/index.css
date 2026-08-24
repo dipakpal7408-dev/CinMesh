@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+:root {
+  /* Base surfaces — warm graphite, not pure black */
+  --ink: #14171d;
+  --panel: #1b1f27;
+  --panel-raised: #222733;
+  --line: #2c3140;
+
+  /* Text */
+  --text-primary: #eef0f4;
+  --text-muted: #8892a6;
+  --text-faint: #5b6478;
+
+  /* Dual signature accents */
+  --signal: #5eead4;       /* mint / circuit trace — used for live, interactive, links */
+  --signal-dim: #2e5c56;
+  --wire: #ff9b5c;         /* copper wire — used for warmth: likes, community, human */
+  --wire-dim: #7a4c30;
+
+  /* Branch identity colors (PCB silkscreen palette) */
+  --branch-cse: #5eead4;
+  --branch-ece: #a78bfa;
+  --branch-ee: #facc15;
+  --branch-me: #fb7185;
+  --branch-ce: #60a5fa;
+  --branch-it: #34d399;
+
+  --danger: #f87171;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(255,255,255,0.035) 1px, transparent 0);
+  background-size: 28px 28px;
+  color: var(--text-primary);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+.font-mono-tag {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--signal-dim);
+  color: var(--text-primary);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 8px;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Signature: circuit-trace divider between sections */
+.trace-divider {
+  position: relative;
+  height: 1px;
+  background: var(--line);
+  overflow: visible;
+}
+.trace-divider::after {
+  content: "";
+  position: absolute;
+  top: -2.5px;
+  left: 6%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 8px 1px var(--signal);
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.node-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
