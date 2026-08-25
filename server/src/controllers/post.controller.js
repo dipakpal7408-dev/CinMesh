@@ -3,7 +3,7 @@ const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const { getPagination } = require("../utils/pagination");
 const { uploadBuffer } = require("../services/upload.service");
-const { createNotification } = require("../services/notification.service.js");
+const { createNotification } = require("../services/notification.service");
 
 // @desc  Create a post
 // @route POST /api/posts
