@@ -1,0 +1,18 @@
+# Exported from Render on 2026-08-25T19:36:39Z
+version: "1"
+projects:
+- name: CinMesh
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: CinMesh-1
+      runtime: static
+      repo: https://github.com/dipakpal7408-dev/CinMesh
+      envVars:
+      - key: VITE_API_URL
+        sync: false
+      buildCommand: npm install; npm run build
+      staticPublishPath: dist
+      autoDeployTrigger: commit
+      rootDir: client
