@@ -2,7 +2,7 @@ const asyncHandler = require("express-async-handler");
 const Post = require("../models/Post");
 const Comment = require("../models/Comment");
 const { getPagination } = require("../utils/pagination");
-const { uploadBuffer } = require("src/services/upload.service");
+const { uploadBuffer } = require("../services/upload.service");
 const { createNotification } = require("src/services/notification.service.js");
 
 // @desc  Create a post
